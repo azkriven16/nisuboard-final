@@ -1,15 +1,31 @@
 "use client";
 
-import { useState } from "react";
 import { ModeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, Home, BookOpen, Newspaper, Download } from "lucide-react";
+import { BookOpen, Download, Home, Newspaper, Search } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function MarketingNav() {
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
 
+    useEffect(() => {
+        window.addEventListener("beforeinstallprompt", (e) => {
+            e.preventDefault();
+            setDeferredPrompt(e);
+        });
+    }, []);
+
+    const handleInstall = async () => {
+        if (!deferredPrompt) return;
+
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+
+        if (outcome === "accepted") {
+            setDeferredPrompt(null);
+        }
+    };
     return (
         <>
             <nav className="flex items-center justify-between p-4 shadow-md">
@@ -42,7 +58,10 @@ export default function MarketingNav() {
                     </div>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button className="hidden md:inline-flex">
+                    <Button
+                        onClick={handleInstall}
+                        className="hidden md:inline-flex"
+                    >
                         Download App
                     </Button>
                     <Button
@@ -83,34 +102,13 @@ export default function MarketingNav() {
                 </div>
             </div>
 
-            {/* Mobile search overlay */}
-            {isSearchOpen && (
-                <div className="md:hidden fixed inset-0 bg-background z-50 p-4">
-                    <form className="flex items-center gap-2">
-                        <Input
-                            type="text"
-                            placeholder="Search..."
-                            className="flex-grow"
-                            autoFocus
-                        />
-                        <Button type="submit" size="icon">
-                            <Search className="h-4 w-4" />
-                            <span className="sr-only">Search</span>
-                        </Button>
-                        <Button
-                            size="icon"
-                            variant="ghost"
-                            onClick={() => setIsSearchOpen(false)}
-                        >
-                            <span className="sr-only">Close</span>✕
-                        </Button>
-                    </form>
-                </div>
-            )}
-
             {/* Mobile download app button */}
             <div className="md:hidden fixed bottom-20 right-4">
-                <Button size="lg" className="rounded-full shadow-lg">
+                <Button
+                    onClick={handleInstall}
+                    size="lg"
+                    className="rounded-full shadow-lg"
+                >
                     <Download className="h-5 w-5 mr-2" />
                     Download App
                 </Button>
