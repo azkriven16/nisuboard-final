@@ -71,7 +71,7 @@ export default function RootLayout({
                             <Loader />
                         </ClerkLoading>
                         <ClerkLoaded>{children}</ClerkLoaded>
-                        <Toaster />
+                        <Toaster position="top-center" richColors />
                     </ThemeProvider>
                 </body>
             </html>

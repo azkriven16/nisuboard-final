@@ -1,7 +1,7 @@
 import { Section } from "@/components/section";
 import { TenantCardContainer } from "@/features/tenant/components/tenant-card-container";
 import { checkRole } from "@/lib/check-role";
-import { getListings } from "@/server/actions/get-listings";
+import { getListings } from "@/server/tenant/get-listings";
 import { redirect } from "next/navigation";
 
 export default async function TenantPage() {

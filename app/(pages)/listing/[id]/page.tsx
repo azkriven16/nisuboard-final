@@ -1,9 +1,7 @@
 import { Section } from "@/components/section";
 import ListingDetails from "@/features/listing/components/listing-details";
 import ListingRatings from "@/features/listing/components/listing-ratings";
-import { createRating } from "@/server/actions/create-rating";
-import { getListing } from "@/server/actions/get-listing";
-import Link from "next/link";
+import { getListing } from "@/server/tenant/get-listing";
 
 interface ListingPageProps {
     params: {

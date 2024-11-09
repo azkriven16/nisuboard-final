@@ -13,10 +13,10 @@ import {
     IconTrash,
     IconEdit,
 } from "@tabler/icons-react";
-import { createRating } from "@/server/actions/create-rating";
-import { getRatings } from "@/server/actions/get-ratings";
-import { deleteRating } from "@/server/actions/delete-listing";
-import { editRating } from "@/server/actions/edit-rating";
+import { createRating } from "@/server/tenant/create-rating";
+import { getRatings } from "@/server/tenant/get-ratings";
+import { deleteRating } from "@/server/tenant/delete-rating";
+import { editRating } from "@/server/tenant/edit-rating";
 
 interface ListingRatingsProps {
     listing: Listing;
