@@ -40,7 +40,7 @@ export const TenantCardContainer = ({ listings }: { listings: Listing[] }) => {
 
     return (
         <div className="space-y-8 mx-auto">
-            <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm shadow-lg">
+            <Card className="mt-5 bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm shadow-lg">
                 <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row gap-6 items-center">
                         <div className="w-full space-y-2">
