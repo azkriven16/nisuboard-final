@@ -1,9 +1,8 @@
 "use client";
 
 import { ModeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
 import UserButtonComponent from "@/components/user-button";
-import { Home, MapPin, Search, User2 } from "lucide-react";
+import { Home, MapPin, Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
