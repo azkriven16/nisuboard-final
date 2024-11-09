@@ -1,7 +1,7 @@
-import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
-import { checkRole } from "@/lib/check-role";
+import AdminNav from "@/features/admin/components/admin-nav";
+import LandlordNav from "@/features/landlord/components/landlord-nav";
 import TenantNav from "@/features/tenant/components/tenant-nav";
+import { checkRole } from "@/lib/check-role";
 
 export default async function ListingLayout({
     children,
@@ -16,8 +16,8 @@ export default async function ListingLayout({
 
     return (
         <>
-            {/* {isAdmin && <AdminNavbar />}
-            {isLandlord && <LandlordNavbar />} */}
+            {isAdmin && <AdminNav />}
+            {isLandlord && <LandlordNav />}
             {!isAdmin && !isLandlord && <TenantNav />}
             {children}
         </>
