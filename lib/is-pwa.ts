@@ -11,8 +11,8 @@ export const useIsPWA = () => {
                 "(display-mode: standalone)"
             ).matches;
             setIsPWA(isPwa);
-            if (isPwa) {
-                router.push("/tenant");
+            if (!isPwa) {
+                router.push("/");
             }
         };
 
