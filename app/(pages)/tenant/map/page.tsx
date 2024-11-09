@@ -1,10 +1,10 @@
 import { Section } from "@/components/section";
-import { TenantCardContainer } from "@/features/tenant/components/tenant-card-container";
+import OlMap from "@/features/map/ol-map";
 import { checkRole } from "@/lib/check-role";
 import { getListings } from "@/server/queries/get-listings";
 import { redirect } from "next/navigation";
 
-export default async function TenantPage() {
+export default async function TenantMapPage() {
     const [isAdmin, isLandlord] = await Promise.all([
         checkRole("admin"),
         checkRole("landlord"),
@@ -21,8 +21,8 @@ export default async function TenantPage() {
     const listings = await getListings();
 
     return (
-        <Section>
-            <TenantCardContainer listings={listings} />
+        <Section className="overflow-hidden p-0 rounded-none">
+            <OlMap listings={listings} />
         </Section>
     );
 }

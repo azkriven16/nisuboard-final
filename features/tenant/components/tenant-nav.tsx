@@ -17,7 +17,7 @@ export default function TenantNav() {
 
     return (
         <>
-            <nav className="flex items-center justify-between p-4 shadow-md">
+            <nav className="flex items-center justify-between p-4 shadow-md h-16">
                 <div className="flex items-center space-x-6">
                     <Link
                         href="/"
@@ -48,7 +48,10 @@ export default function TenantNav() {
             </nav>
 
             {/* Mobile bottom bar */}
-            <div className="md:hidden fixed bottom-0 left-0 right-0 bg-background border-torder">
+            <div
+                style={{ zIndex: 99999 }}
+                className="md:hidden fixed bottom-0 left-0 right-0 bg-background border-torder"
+            >
                 <div className="flex justify-around items-center h-16">
                     {navItems.map((item) => (
                         <Link
