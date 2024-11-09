@@ -14,5 +14,5 @@ export const Section = ({
 }) => {
     useIsPWA();
 
-    return <section className={cn("", className)}>{children}</section>;
+    return <section className={cn("px-4", className)}>{children}</section>;
 };

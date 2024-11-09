@@ -22,7 +22,7 @@ export default function TenantNav() {
                 <div className="flex items-center space-x-6">
                     <Link
                         href="/"
-                        className={`text-xl font-bold hover:bg-accent hover:text-accent-foreground py-2 px-4 rounded-full transition-colors`}
+                        className={`text-xl font-bold hover:bg-accent hover:text-accent-foreground py-2 rounded-full transition-colors`}
                     >
                         Nisuboard
                     </Link>
@@ -43,7 +43,6 @@ export default function TenantNav() {
                     </div>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button className="hidden md:inline-flex">Sign In</Button>
                     <UserButtonComponent />
                     <ModeToggle />
                 </div>

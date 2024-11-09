@@ -17,7 +17,6 @@ export default function UserButtonComponent() {
         return (
             <>
                 <div className="h-[32px] w-[32px] rounded-full bg-muted animate-pulse" />
-                <div className="h-8 w-16 rounded-md bg-muted animate-pulse" />
             </>
         );
     }
@@ -37,7 +36,11 @@ export default function UserButtonComponent() {
             </SignedIn>
             <SignedOut>
                 <SignInButton>
-                    <Button size="icon" variant="outline">
+                    <Button
+                        size="icon"
+                        variant="outline"
+                        className="rounded-full"
+                    >
                         <IconUser />
                     </Button>
                 </SignInButton>
