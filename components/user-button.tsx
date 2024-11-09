@@ -28,7 +28,7 @@ export default function UserButtonComponent() {
                     <UserButton
                         appearance={{
                             elements: {
-                                avatarBox: "h-[20px] w-[20px]",
+                                avatarBox: "h-[32px] w-[32px]",
                             },
                         }}
                     />

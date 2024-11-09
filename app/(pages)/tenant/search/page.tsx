@@ -2,7 +2,7 @@ import { Section } from "@/components/section";
 import { TenantCardContainer } from "@/features/tenant/components/tenant-card-container";
 import { TenantSearchContainer } from "@/features/tenant/components/tenant-search-container";
 import { checkRole } from "@/lib/check-role";
-import { getListings } from "@/server/queries/get-listings";
+import { getListings } from "@/server/actions/get-listings";
 import { redirect } from "next/navigation";
 
 export default async function TenantSearchPage() {

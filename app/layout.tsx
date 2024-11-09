@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkLoaded, ClerkLoading, ClerkProvider } from "@clerk/nextjs";
 import { Loader } from "@/components/loader";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -40,7 +41,6 @@ export const metadata: Metadata = {
         initialScale: 1,
         maximumScale: 1,
     },
-    themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -71,6 +71,7 @@ export default function RootLayout({
                             <Loader />
                         </ClerkLoading>
                         <ClerkLoaded>{children}</ClerkLoaded>
+                        <Toaster />
                     </ThemeProvider>
                 </body>
             </html>
