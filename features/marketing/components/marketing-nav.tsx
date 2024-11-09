@@ -31,8 +31,8 @@ export default function MarketingNav() {
 
     const navItems = [
         { href: "/", label: "Home" },
-        { href: "#tech-stack", label: "Tech Stack" },
-        { href: "#features", label: "Features" },
+        { href: "/tech-stack", label: "Tech Stack" },
+        { href: "/features", label: "Features" },
     ];
 
     return (
@@ -41,7 +41,7 @@ export default function MarketingNav() {
                 <div className="flex items-center space-x-6">
                     <Link
                         href="/"
-                        className={`text-xl font-bold hover:bg-accent hover:text-accent-foreground p-2  transition-colors`}
+                        className={`text-xl font-bold hover:bg-accent hover:text-accent-foreground py-2 px-4 rounded-full transition-colors`}
                     >
                         Nisuboard
                     </Link>
@@ -50,9 +50,9 @@ export default function MarketingNav() {
                             <Link
                                 key={item.label}
                                 href={item.href}
-                                className={`text-sm font-medium hover:bg-accent hover:text-accent-foreground p-2  transition-colors ${
+                                className={`text-sm font-medium hover:bg-accent hover:text-accent-foreground py-2 px-4 rounded-full transition-colors ${
                                     pathname === item.href
-                                        ? "bg-accent text-accent-foreground border-b border-primary"
+                                        ? "bg-accent text-accent-foreground"
                                         : ""
                                 }`}
                             >
@@ -82,7 +82,7 @@ export default function MarketingNav() {
             </nav>
 
             {/* Mobile bottom bar */}
-            <div className="md:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-border">
+            <div className="md:hidden fixed bottom-0 left-0 right-0 bg-background border-torder">
                 <div className="flex justify-around items-center h-16">
                     {navItems.map((item) => (
                         <Link
@@ -90,7 +90,7 @@ export default function MarketingNav() {
                             href={item.href}
                             className={`flex flex-col items-center ${
                                 pathname === item.href
-                                    ? "bg-accent text-accent-foreground border border-primary"
+                                    ? "bg-accent text-accent-foreground border"
                                     : ""
                             }`}
                         >

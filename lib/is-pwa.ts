@@ -1,7 +1,9 @@
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const useIsPWA = () => {
     const [isPWA, setIsPWA] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         const updateIsPWA = () => {
@@ -10,7 +12,7 @@ export const useIsPWA = () => {
             ).matches;
             setIsPWA(isPwa);
             if (isPwa) {
-                window.location.reload();
+                router.push("/tenant");
             }
         };
 
