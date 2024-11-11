@@ -164,7 +164,7 @@ export default function CreateForm({
                         }
 
                         const uploadData = await uploadResponse.json();
-                        return `/images/${uploadData.filename}`;
+                        return uploadData.url; // Use the Blob URL directly
                     })
                 );
             }
