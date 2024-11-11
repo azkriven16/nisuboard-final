@@ -1,6 +1,7 @@
 import { writeFile, mkdir } from "fs/promises";
 import { NextRequest, NextResponse } from "next/server";
 import { join } from "path";
+import { v4 as uuidv4 } from "uuid";
 
 export async function POST(request: NextRequest) {
     try {
@@ -12,6 +13,15 @@ export async function POST(request: NextRequest) {
         if (!file) {
             return NextResponse.json(
                 { error: "No file uploaded" },
+                { status: 400 }
+            );
+        }
+
+        // Validate file type (optional)
+        const validMimeTypes = ["image/jpeg", "image/png", "image/gif"];
+        if (!validMimeTypes.includes(file.type)) {
+            return NextResponse.json(
+                { error: "Invalid file type" },
                 { status: 400 }
             );
         }
@@ -34,8 +44,9 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Define the file path where the file will be saved
-        const filePath = join(uploadDir, file.name);
+        // Generate a unique file name (to avoid conflicts)
+        const uniqueFileName = `${uuidv4()}-${file.name}`;
+        const filePath = join(uploadDir, uniqueFileName);
 
         // Save the file to the specified directory
         await writeFile(filePath, buffer);
@@ -44,7 +55,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json(
             {
                 message: "File uploaded successfully",
-                filename: file.name,
+                filename: uniqueFileName,
             },
             { status: 200 }
         );
