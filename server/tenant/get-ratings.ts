@@ -8,6 +8,9 @@ export async function getRatings(id: string) {
             where: {
                 listingId: id,
             },
+            orderBy: {
+                createdAt: "desc",
+            },
         });
         return ratings;
     } catch (error) {

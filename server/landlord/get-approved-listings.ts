@@ -9,6 +9,9 @@ export async function getApprovedListings(id: string) {
                 userId: id,
                 approved: true,
             },
+            orderBy: {
+                createdAt: "desc",
+            },
         });
         return listings;
     } catch (error) {

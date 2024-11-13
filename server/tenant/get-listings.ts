@@ -8,6 +8,9 @@ export async function getListings() {
             where: {
                 approved: true,
             },
+            orderBy: {
+                createdAt: "desc",
+            },
         });
         return listings;
     } catch (error) {

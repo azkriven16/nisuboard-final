@@ -9,6 +9,9 @@ export async function getPendingListings(id: string) {
                 userId: id,
                 approved: false,
             },
+            orderBy: {
+                createdAt: "desc",
+            },
         });
         return listings;
     } catch (error) {

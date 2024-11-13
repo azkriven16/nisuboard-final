@@ -8,6 +8,9 @@ export async function getAllListingsById(id: string) {
             where: {
                 userId: id,
             },
+            orderBy: {
+                createdAt: "desc",
+            },
         });
         return listings;
     } catch (error) {
